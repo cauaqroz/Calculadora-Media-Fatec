@@ -123,6 +123,9 @@ footer {
     background-color: #f8f4f4;
     padding: 20px;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 footer a {
@@ -136,8 +139,8 @@ footer.dark-theme {
 footer.dark-theme a {
     color: #f5f5f5; /* Cinza claro */
 }
-        
-@media (max-width: 800px) {
+
+@media (max-width: 900px) {
     body {
         font-size: 16px;
     }
@@ -165,7 +168,9 @@ footer.dark-theme a {
         font-size: 18px;
     }
 
-footer {
+ 
+
+    footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -255,8 +260,6 @@ function toggleTheme() {
 
     <p id="media">Média: </p>
 
-    <br>
-    <br>
     <footer>
        <a href="https://github.com/cauaqroz/Calculadora-Media-Fatec/" target="_blank">Repositório do Projeto</a>
     </footer>
@@ -267,30 +270,30 @@ function toggleTheme() {
             if (tipo == "comProjeto") {
                 formulario.innerHTML = `
                     <label for="ativ">Atividade:</label><br>
-                    <input type="number" id="ativ" name="ativ" value="0"><br>
+                    <input type="number" id="ativ" name="ativ" value="0" min="0" max="10"><br>
                     <label for="p1">P1:</label><br>
-                    <input type="number" id="p1" name="p1" value="0"><br>
+                    <input type="number" id="p1" name="p1" value="0" min="0" max="10"><br>
                     <label for="pj1">PJ1:</label><br>
-                    <input type="number" id="pj1" name="pj1" value="0"><br>
+                    <input type="number" id="pj1" name="pj1" value="0" min="0" max="10"><br>
                     <label for="p2">P2:</label><br>
-                    <input type="number" id="p2" name="p2" value="0"><br>
+                    <input type="number" id="p2" name="p2" value="0" min="0" max="10"><br>
                     <label for="pj2">PJ2:</label><br>
-                    <input type="number" id="pj2" name="pj2" value="0"><br>
+                    <input type="number" id="pj2" name="pj2" value="0" min="0" max="10"><br>
                     <input type="checkbox" id="adicionarP3" name="adicionarP3"><label for="adicionarP3">Adicionar Nota P3:</label><br>
-                    <input type="number" id="p3" name="p3" value="0"><br>
+                    <input type="number" id="p3" name="p3" value="0" min="0" max="10"><br>
                     <button onclick="calcularComProjeto()">Calcular</button>
                 `;
             } else {
                 formulario.innerHTML = `
                     <label for="ativ">Atividade:</label><br>
-                    <input type="number" id="ativ" name="ativ" value="0"><br>
+                    <input type="number" id="ativ" name="ativ" value="0" min="0" max="10"><br>
                     <label for="p1">P1:</label><br>
-                    <input type="number" id="p1" name="p1" value="0"><br>
+                    <input type="number" id="p1" name="p1" value="0" min="0" max="10"><br>
                     <label for="p2">P2:</label><br>
-                    <input type="number" id="p2" name="p2" value="0"><br>
+                    <input type="number" id="p2" name="p2" value="0" min="0" max="10"><br>
                     <input type="checkbox" id="adicionarP3" name="adicionarP3"><label for="adicionarP3">Adicionar Nota P3:</label><br>
                     
-                    <input type="number" id="p3" name="p3" value="0"><br>
+                    <input type="number" id="p3" name="p3" value="0" min="0" max="10" ><br>
                     <button onclick="calcularSemProjeto()">Calcular</button>
                 `;
             }
