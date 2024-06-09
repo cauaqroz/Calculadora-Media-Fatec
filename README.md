@@ -3,4 +3,7 @@
 Formulas Usadas:
 
 Media (Ativ * 0.2 + P1 * 0.4 + P2 * 0.4, P3)<br>
-Media (Ativ * 0.2 + (P1 * 0.5 + Prj1 * 0.5) * 0.4 + (P2 * 0.5 + Prj2 * 0.5) * 0.4, P3 * 0.5 + (Prj1 + Prj2)/2 *0.5)
+Media (Ativ * 0.2 + (P1 * 0.5 + Prj1 * 0.5) * 0.4 + (P2 * 0.5 + Prj2 * 0.5) * 0.4, P3 * 0.5 + (Prj1 + Prj2)/2 *0.5)<br>
+
+## Aviso!
+isso foi feito com base no sistema do Siga, as formas avaliativas individuais dos professores NÃO foram levadas em considerações
