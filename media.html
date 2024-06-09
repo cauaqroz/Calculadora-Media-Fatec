@@ -1,1 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+<body>
+    <style>body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #ffffff; /* Branco */
+    }
+    
+    h1 {
+        color: #b22222; /* Vermelho Centro Paula Souza */
+        padding: 20px 0;
+    }
+    
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        color: #ffffff; /* Branco */
+        background-color: #b22222; /* Vermelho Centro Paula Souza */
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #8b0000; /* Vermelho escuro */
+    }
+    
+    .formulario {
+        margin: 0 auto;
+        padding: 20px;
+        width: 300px;
+        background-color: #ffffff; /* Branco */
+        border: 1px solid #b22222; /* Vermelho Centro Paula Souza */
+        border-radius: 5px;
+    }
+    
+    .formulario input[type="number"], #formulario button {
+        width: 90%; /* Reduzir a largura para 90% */
+        padding: 10px;
+        margin: 10px auto; /* Adicionar margens automáticas à esquerda e à direita */
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+    
+    .formulario button {
+        border: none;
+        color: #ffffff; /* Branco */
+        background-color: #b22222; /* Vermelho Centro Paula Souza */
+        cursor: pointer;
+    }
+    
+    .formulario button:hover {
+        background-color: #8b0000; /* Vermelho escuro */
+    }
+    
+    #resultado {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #333;
+    }
+    #theme-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        color: #b22222; /* Vermelho Centro Paula Souza */
+        font-size: 24px; /* Tamanho do ícone */
+    }
 
+body.dark-theme {
+    background-color: #2b2b2b; /* Cinza escuro */
+    color: #f5f5f5; /* Cinza claro */
+}
+
+h1.dark-theme {
+    color: #f5f5f5; /* Cinza claro */
+}
+
+button.dark-theme {
+    background-color: #b22222; /* Vermelho Centro Paula Souza */
+    color: #f5f5f5; /* Cinza claro */
+}
+
+button.dark-theme:hover {
+    background-color: #8b0000; /* Vermelho escuro */
+}
+
+.formulario.dark-theme {
+    background-color: #2b2b2b; /* Cinza escuro */
+    border-color: #b22222; /* Vermelho Centro Paula Souza */
+}
+
+.formulario.dark-theme input[type="number"], #formulario.dark-theme button {
+    border-color: #f5f5f5; /* Cinza claro */
+}
+
+.formulario.dark-theme button {
+    background-color: #b22222; /* Vermelho Centro Paula Souza */
+    color: #f5f5f5; /* Cinza claro */
+}
+
+.formulario.dark-theme button:hover {
+    background-color: #8b0000; /* Vermelho escuro */
+}
+
+#resultado.dark-theme {
+    color: #f5f5f5; /* Cinza claro */
+}
+#adicionarP3 {
+    margin-right: 20px;
+}
+
+#adicionarP3:checked {
+    color: Highlight;
+}
+    </style>
+    <script>
+window.onload = function() {
+    var savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+
+        var h1 = document.querySelector('h1');
+        if (h1) {
+            h1.classList.add('dark-theme');
+        }
+
+        document.querySelectorAll('button').forEach(button => button.classList.add('dark-theme'));
+
+        var formulario = document.getElementById('formulario');
+        if (formulario) {
+            formulario.classList.add('dark-theme');
+        }
+
+        var resultado = document.querySelector('#resultado');
+        if (resultado) {
+            resultado.classList.add('dark-theme');
+        }
+    } else {
+        document.body.classList.remove('dark-theme');
+
+        var h1 = document.querySelector('h1');
+        if (h1) {
+            h1.classList.remove('dark-theme');
+        }
+
+        document.querySelectorAll('button').forEach(button => button.classList.remove('dark-theme'));
+
+        var formulario = document.getElementById('formulario');
+        if (formulario) {
+            formulario.classList.remove('dark-theme');
+        }
+
+        var resultado = document.querySelector('#resultado');
+        if (resultado) {
+            resultado.classList.remove('dark-theme');
+        }
+    }
+}
+
+function toggleTheme() {
+    var currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark') {
+        localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
+    }
+
+    // Atualiza o tema após alterá-lo
+    window.onload();
+}
+    </script>
+
+    <i id="theme-icon" class="fas fa-sun" onclick="toggleTheme()"></i>
+
+    <h2>Calculadora de Notas</h2>
+
+    <p>Selecione se deseja incluir o projeto na nota:</p>
+
+    <button onclick="alterarFormulario('comProjeto')">Com Projeto</button>
+    <button onclick="alterarFormulario('semProjeto')">Sem Projeto</button>
+
+    <div id="formulario" class="formulario">
+      <!-- Aqui vai o seu formulário -->
+    </div>
+
+    <p id="media">Média: </p>
+
+    <br>
+    <br>
+    <footer style="background-color: #f8f4f4; padding: 20px; text-align: center;">
+       <a href="https://github.com/cauaqroz/Calculadora-Media-Fatec/" target="_blank">Repositório do Projeto</a>
+    </footer>
+    <script>
+        function alterarFormulario(tipo) {
+            var formulario = document.getElementById("formulario");
+    
+            if (tipo == "comProjeto") {
+                formulario.innerHTML = `
+                    <label for="ativ">Atividade:</label><br>
+                    <input type="number" id="ativ" name="ativ" value="0"><br>
+                    <label for="p1">P1:</label><br>
+                    <input type="number" id="p1" name="p1" value="0"><br>
+                    <label for="pj1">PJ1:</label><br>
+                    <input type="number" id="pj1" name="pj1" value="0"><br>
+                    <label for="p2">P2:</label><br>
+                    <input type="number" id="p2" name="p2" value="0"><br>
+                    <label for="pj2">PJ2:</label><br>
+                    <input type="number" id="pj2" name="pj2" value="0"><br>
+                    <input type="checkbox" id="adicionarP3" name="adicionarP3"><label for="adicionarP3">Adicionar Nota P3:</label><br>
+                    <input type="number" id="p3" name="p3" value="0"><br>
+                    <button onclick="calcularComProjeto()">Calcular</button>
+                `;
+            } else {
+                formulario.innerHTML = `
+                    <label for="ativ">Atividade:</label><br>
+                    <input type="number" id="ativ" name="ativ" value="0"><br>
+                    <label for="p1">P1:</label><br>
+                    <input type="number" id="p1" name="p1" value="0"><br>
+                    <label for="p2">P2:</label><br>
+                    <input type="number" id="p2" name="p2" value="0"><br>
+                    <input type="checkbox" id="adicionarP3" name="adicionarP3"><label for="adicionarP3">Adicionar Nota P3:</label><br>
+                    
+                    <input type="number" id="p3" name="p3" value="0"><br>
+                    <button onclick="calcularSemProjeto()">Calcular</button>
+                `;
+            }
+        }
+    
+        function calcularComProjeto() {
+            var adicionarP3 = document.getElementById("adicionarP3").checked;
+    
+            if (adicionarP3) {
+                calculoRecuperacao('comProjeto');
+            } else {
+                var ativ = parseFloat(document.getElementById("ativ").value);
+                var p1 = parseFloat(document.getElementById("p1").value);
+                var pj1 = parseFloat(document.getElementById("pj1").value);
+                var p2 = parseFloat(document.getElementById("p2").value);
+                var pj2 = parseFloat(document.getElementById("pj2").value);
+    
+                var media = ativ * 0.2 + (p1 * 0.5 + pj1 * 0.5) * 0.4 + (p2 * 0.5 + pj2 * 0.5) * 0.4;
+                document.getElementById("media").innerHTML = "Média: " + media.toFixed(2);
+            }
+        }
+    
+        function calcularSemProjeto() {
+            var adicionarP3 = document.getElementById("adicionarP3").checked;
+    
+            if (adicionarP3) {
+                calculoRecuperacao('semProjeto');
+            } else {
+                var ativ = parseFloat(document.getElementById("ativ").value);
+                var p1 = parseFloat(document.getElementById("p1").value);
+                var p2 = parseFloat(document.getElementById("p2").value);
+    
+                var media = ativ * 0.2 + p1 * 0.4 + p2 * 0.4;
+                document.getElementById("media").innerHTML = "Média: " + media.toFixed(2);
+            }
+        }
+    
+        function calculoRecuperacao(tipo) {
+            var p3 = parseFloat(document.getElementById("p3").value);
+    
+            if (tipo == 'comProjeto') {
+                var pj1 = parseFloat(document.getElementById("pj1").value);
+                var pj2 = parseFloat(document.getElementById("pj2").value);
+    
+                var media = p3 * 0.5 + (pj1 + pj2) / 2 * 0.5;
+                document.getElementById("media").innerHTML = "Média: " + media.toFixed(2);
+            } else {
+                document.getElementById("media").innerHTML = "Média: " + p3.toFixed(2);
+            }
+        }
+    
+        // Chama a função para exibir o formulário com projeto por padrão
+        alterarFormulario('comProjeto');
+    </script>
+
+</body>
+</html>
