@@ -118,6 +118,23 @@ button.dark-theme:hover {
 #adicionarP3:checked {
     color: Highlight;
 }
+footer {
+    background-color: #f8f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #000;
+}
+
+footer.dark-theme {
+    background-color: #333;
+}
+
+footer.dark-theme a {
+    color: #f5f5f5; /* Cinza claro */
+}
     </style>
     <script>
 window.onload = function() {
@@ -142,6 +159,10 @@ window.onload = function() {
         if (resultado) {
             resultado.classList.add('dark-theme');
         }
+        var footer = document.querySelector('footer');
+        if (footer) {
+            footer.classList.add('dark-theme');
+        }
     } else {
         document.body.classList.remove('dark-theme');
 
@@ -160,6 +181,10 @@ window.onload = function() {
         var resultado = document.querySelector('#resultado');
         if (resultado) {
             resultado.classList.remove('dark-theme');
+        }
+        var footer = document.querySelector('footer');
+        if (footer) {
+            footer.classList.remove('dark-theme');
         }
     }
 }
@@ -195,7 +220,7 @@ function toggleTheme() {
 
     <br>
     <br>
-    <footer style="background-color: #f8f4f4; padding: 20px; text-align: center;">
+    <footer>
        <a href="https://github.com/cauaqroz/Calculadora-Media-Fatec/" target="_blank">Repositório do Projeto</a>
     </footer>
     <script>
